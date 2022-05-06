@@ -59,9 +59,9 @@ async def skip(client, m: Message):
     if len(m.command) < 2:
         op = await skip_current_song(chat_id)
         if op == 0:
-            await m.reply("❌ nothing is currently playing")
+            await m.reply("❌ لا يوجد شيء مشتغل حاليا")
         elif op == 1:
-            await m.reply("✅ __Queues__ **is empty.**\n\n**• userbot leaving voice chat**")
+            await m.reply("✅ __قوائم الانتظار__ **فارغه.**\n\n**• مساعد البوت يغادر الدردشة الصوتية**")
         elif op == 2:
             await m.reply("🗑️ **Clearing the Queues**\n\n**• userbot leaving voice chat**")
         else:
