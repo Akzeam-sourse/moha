@@ -53,25 +53,25 @@ def updater():
     return bool(changelog)
 
 
-@Client.on_message(command(["تحديث", f"update@{BOT_USERNAME}"]) & ~filters.edited)
+@Client.on_message(command(["تحديث البوت", f"update@{BOT_USERNAME}"]) & ~filters.edited)
 @sudo_users_only
 async def update_repo(_, message: Message):
     chat_id = message.chat.id
     msg = await message.reply("🔄 `processing update...`")
     update_avail = updater()
     if update_avail:
-        await msg.edit("✅ update finished\n\n• bot restarted, back active again in 1 minutes.")
+        await msg.edit("✅ انتهى التحديث \n\n• أعيد تشغيل البوت ، وعاد نشطًا مرة أخرى خلال دقيقة واحدة.")
         system("git pull -f && pip3 install -r requirements.txt")
         execle(sys.executable, sys.executable, "main.py", environ)
         return
-    await msg.edit("bot is **up-to-date** with [main](https://github.com/levina-lab/video-stream/tree/main)", disable_web_page_preview=True)
+    await msg.edit("bot is **up-to-date** with [main](https://github.com/Yy45r/MUSICALEEX1/tree/main)", disable_web_page_preview=True)
 
 
-@Client.on_message(command(["restart", f"restart@{BOT_USERNAME}"]) & ~filters.edited)
+@Client.on_message(command(["اعاده التشغيل", f"restart@{BOT_USERNAME}"]) & ~filters.edited)
 @sudo_users_only
 async def restart_bot(_, message: Message):
     msg = await message.reply("`restarting bot...`")
     args = [sys.executable, "main.py"]
-    await msg.edit("✅ bot restarted\n\n• now you can use this bot again.")
+    await msg.edit("✅ اعاده تشغيل البوت\n\n• الآن يمكنك استخدام هذا البوت مرة أخرى.")
     execle(sys.executable, *args, environ)
     return
