@@ -23,7 +23,7 @@ async def join_chat(c: Client, m: Message):
             (await user.get_me()).id,
             can_manage_voice_chats=True
         )
-        return await user.send_message(chat_id, "✅ userbot entered chat")
+        return await user.send_message(chat_id, "✅ انضم حساب المساعد إلى مجموعتك")
     except UserAlreadyParticipant:
         admin = await m.chat.get_member((await user.get_me()).id)
         if not admin.can_manage_voice_chats:
@@ -31,12 +31,12 @@ async def join_chat(c: Client, m: Message):
                 (await user.get_me()).id,
                 can_manage_voice_chats=True
             )
-            return await user.send_message(chat_id, "✅ userbot already in chat")
-        return await user.send_message(chat_id, "✅ userbot already in chat")
+            return await user.send_message(chat_id, "✅ حساب المساعد بالفعل موجود في الدردشة")
+        return await user.send_message(chat_id, "✅ حبيبي تراا لحيت دكلك موجود ؟")
 
 
-@Client.on_message(command(["غادر",
-                            f"غادر@{BOT_USERNAME}"]) & filters.group & ~filters.edited
+@Client.on_message(command(["؟غادر",
+                            f"؟غادر@{BOT_USERNAME}"]) & filters.group & ~filters.edited
 )
 @authorized_users_only
 async def leave_chat(_, m: Message):
@@ -45,12 +45,12 @@ async def leave_chat(_, m: Message):
         await user.leave_chat(chat_id)
         return await _.send_message(
             chat_id,
-            "✅ userbot leaved chat",
+            "✅ غادر مساعد البوت المجموعة",
         )
     except UserNotParticipant:
         return await _.send_message(
             chat_id,
-            "❌ userbot already leave chat",
+            "❌ مساعد البوت بالفعل مغادر",
         )
 
 
