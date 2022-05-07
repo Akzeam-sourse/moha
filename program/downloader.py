@@ -35,7 +35,7 @@ ydl_opts = {
 }
 
 
-@Client.on_message(command(["بحث", f"song@{bn}"]) & ~filters.edited)
+@Client.on_message(command(["تحميل", f"song@{bn}"]) & ~filters.edited)
 def song(_, message):
     query = " ".join(message.command[1:])
     m = message.reply("🔎 finding song...")
@@ -54,7 +54,7 @@ def song(_, message):
         m.edit("❌ لم اجد شيئا.\n\nاعطني اسم المغني كامل.")
         print(str(e))
         return
-    m.edit("📥 downloading file...")
+    m.edit("📥 جارر تحميل الملف...")
     try:
         with yt_dlp.YoutubeDL(ydl_ops) as ydl:
             info_dict = ydl.extract_info(link, download=False)
@@ -87,7 +87,7 @@ def song(_, message):
 
 
 @Client.on_message(
-    command(["ابحثلي", f"vsong@{bn}", "video", f"video@{bn}"]) & ~filters.edited
+    command(["ابحث", f"vsong@{bn}", "video", f"video@{bn}"]) & ~filters.edited
 )
 async def vsong(client, message):
     ydl_opts = {
