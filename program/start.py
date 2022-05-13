@@ -48,41 +48,42 @@ async def _human_time_duration(seconds):
 
 
 @Client.on_message(
-    command(["start2003", f"start@{BOT_USERNAME}"]) & filters.private & ~filters.edited
+    command(["/start2003", f"start@{BOT_USERNAME}"]) & filters.private & ~filters.edited
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""👋🏻 **هلا حب {message.from_user.mention()} !**\n
-🎗 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) **انا روبوت لتشغيل الاغاني والموسيقى على منصة تليجرام!**
+        f"""👋🏻 **᥀︙ ههلا عمࢪيہ {message.from_user.mention()} !**\n
+**᥀︙انا بوت لتشغيل الاغاني في المكالمات الصوتية  •**
 
-ℹ️ **لمعرفة اوامر هذا البوت اضغط على » الاوامر الاساسية!**
+ **᥀︙ لمعرفة اوامر هذا البوت اضغط على » اوامر التشغيل ! •**
 
-ℹ️ **لمعرفة طريقة تشغيل هذا البوت اضغط على » طريقة التشغيل!**
+ **
+᥀︙ لمعرفة طريقة تفعيل هذا البوت اضغط على » طريقة التفعيل ! •**
 """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "➕ اضفني الى مجموعتك ➕",
+                        "‹ اضف البوت في مجموعتك ›",
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
                     )
                 ],
-                [InlineKeyboardButton("طريقة التشغيل", callback_data="cbhowtouse")],
+                [InlineKeyboardButton("• المطوࢪ •", callback_data="cbhowtouse")],
                 [
-                    InlineKeyboardButton("الاوامر الاساسية", callback_data="cbcmds"),
-                    InlineKeyboardButton("المطور", url=f"https://t.me/{OWNER_NAME}"),
+                    InlineKeyboardButton("اوامࢪ التشغيل", callback_data="cbcmds"),
+                    InlineKeyboardButton("طريقة التفعيل", callback_data="cbhowtouse")],
                 ],
                 [
                     InlineKeyboardButton(
-                        "قناة السورس", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "• قناة السوࢪس •", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "تحديثات البوت", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "• تحديثات البوت •", url=f"https://t.me/{UPDATES_CHANNEL}"
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        "ملاحظة مهمة جدأ", url="https://t.me/DJJJJJe"
+                        "‹ تواصل السوࢪس ›", url="https://t.me/DJJJJJe"
                     )
                 ],
             ]
@@ -102,7 +103,7 @@ async def alive(client: Client, message: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("اوامر التشغيل", url=f"https://t.me/DJJJJJe"),
+                InlineKeyboardButton("قناة التحديثات", url=f"https://t.me/DJJJJJe"),
                 InlineKeyboardButton(
                     "مطور السورس", url=f"https://t.me/GGG66"
                 ),
