@@ -51,8 +51,8 @@ async def play(c: Client, m: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(text="• القائمه", callback_data="cbmenu"),
-                    InlineKeyboardButton(text="•اغلاق", callback_data="cls"),
+                    InlineKeyboardButton(text="‹ تحكم ›", callback_data="cbmenu"),
+                    InlineKeyboardButton(text="‹ اغلاق ›", callback_data="cls"),
                 ]
             ]
         )
@@ -132,7 +132,7 @@ async def play(c: Client, m: Message):
                     await suhu.delete()
                     await m.reply_photo(
                         photo=f"{IMG_1}",
-                        caption=f"💡 **تمت إضافة المسار إلى قائمة الانتظار »** `{pos}`\n\n🏷 **اسم:** [{songname}]({link})| موسيقى`\n💭**محادثة:** `{chat_id}`\n🎧 **بواسطه:** {m.from_user.mention()}",
+                        caption=f"💡 **تمت إضافة المسار إلى قائمة الانتظار »** `{pos}`\n\n📍 **العنوان:** [{songname}]({link})| موسيقى`\n💭**محادثة:** `{chat_id}`\n🎧 **بواسطه:** {m.from_user.mention()}",
                         reply_markup=keyboard,
                     )
                 else:
@@ -150,7 +150,7 @@ async def play(c: Client, m: Message):
                         requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                         await m.reply_photo(
                             photo=f"{IMG_2}",
-                            caption=f"🏷 **اسم:** [{songname}]({link})\n💭**محادثة:** `{chat_id}`\n💡 ** الحالة:** `يشغل`\n🎧 **بواسطه:** {requester}\n📹 ** نوع البث:** `موسيقى`",
+                            caption=f"📍 **العنوان:** [{songname}]({link})\n💭**محادثة:** `{chat_id}`\n💡 ** الحالة:** `يشغل`\n🎧 **بواسطه:** {requester}\n📹 ** نوع البث:** `موسيقى`",
                             reply_markup=keyboard,
                         )
                     except Exception as e:
@@ -185,12 +185,12 @@ async def play(c: Client, m: Message):
                                 requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                                 await m.reply_photo(
                                     photo=thumbnail,
-                                    caption=f"💡 **تمت إضافة المسار إلى قائمة الانتظار »** `{pos}`\n\n🏷 **اسم:** [{songname}]({url})| موسيقى`\n**⏱ المدة:** `{duration}`\n🎧 **بواسطه:** {requester}",
+                                    caption=f"💡 **تمت إضافة المسار إلى قائمة الانتظار »** `{pos}`\n\n📍 **العنوان:** [{songname}]({url})| موسيقى`\n**⏱ المدة:** `{duration}`\n🎧 **بواسطه:** {requester}",
                                     reply_markup=keyboard,
                                 )
                             else:
                                 try:
-                                    await suhu.edit("🔄 ** الانضمام إلى المكالمه...**")
+                                    await suhu.edit("🔄 ** جاࢪ الانضمام الى المكالمة...**")
                                     await call_py.join_group_call(
                                         chat_id,
                                         AudioPiped(
@@ -203,7 +203,7 @@ async def play(c: Client, m: Message):
                                     requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                                     await m.reply_photo(
                                         photo=thumbnail,
-                                        caption=f"🏷 **اسم:** [{songname}]({url})\n**⏱ المدة:** `{duration}`\n💡 ** الحالة:** `يشغل`\n🎧 **بواسطه:** {requester}\n📹 ** نوع البث:** `موسيقى`",
+                                        caption=f"📍 **العنوان:** [{songname}]({url})\n**⏱ المدة:** `{duration}`\n💡 ** الحالة:** `يشغل`\n🎧 **بواسطه:** {requester}\n📹 ** نوع البث:** `موسيقى`",
                                         reply_markup=keyboard,
                                     )
                                 except Exception as ep:
@@ -216,7 +216,7 @@ async def play(c: Client, m: Message):
                     "» الرد على ** ملف صوتي ** أو ** أعط شيئًا للبحث.**"
                 )
             else:
-                suhu = await c.send_message(chat_id, "🔍**يبحث...**")
+                suhu = await c.send_message(chat_id, "🔍**تم ࢪوحي جارر ... البحث**")
                 query = m.text.split(None, 1)[1]
                 search = ytsearch(query)
                 if search == 0:
@@ -239,12 +239,12 @@ async def play(c: Client, m: Message):
                             )
                             await m.reply_photo(
                                 photo=thumbnail,
-                                caption=f"💡 **تمت إضافة المسار إلى قائمة الانتظار »** `{pos}`\n\n🏷 **اسم:** [{songname}]({url})| موسيقى`\n**⏱ المدة:** `{duration}`\n🎧 **بواسطه:** {requester}",
+                                caption=f"💡 **تمت إضافة المسار إلى قائمة الانتظار »** `{pos}`\n\n📍 **العنۅان:** [{songname}]({url})| موسيقى`\n**⏱ المدة:** `{duration}`\n🎧 **بواسطه:** {requester}",
                                 reply_markup=keyboard,
                             )
                         else:
                             try:
-                                await suhu.edit("🔄 **لانضمام إلى المكالمه...**")
+                                await suhu.edit("🎙 **جاࢪ الانضمام الى المكالمة...**")
                                 await call_py.join_group_call(
                                     chat_id,
                                     AudioPiped(
@@ -257,7 +257,7 @@ async def play(c: Client, m: Message):
                                 requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                                 await m.reply_photo(
                                     photo=thumbnail,
-                                    caption=f"🏷 **اسم:** [{songname}]({url})\n**⏱ المدة:** `{duration}`\n💡 ** الحالة:** `يشغل`\n🎧 **بواسطه:** {requester}\n📹 ** نوع البث:** `موسيقى`",
+                                    caption=f"📍 **العنۅان:** [{songname}]({url})\n**⏱ المدة:** `{duration}`\n💡 ** الحالة:** `يشغل`\n🎧 **بواسطه:** {requester}\n📹 ** نوع البث:** `موسيقى`",
                                     reply_markup=keyboard,
                                 )
                             except Exception as ep:
