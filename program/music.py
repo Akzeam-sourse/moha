@@ -42,9 +42,9 @@ async def ytdl(format: str, link: str):
 @Client.on_message(command(["تشغيل", f"play@{BOT_USERNAME}"]) & other_filters)
 async def play(c: Client, m: Message):
     await m.delete()
-    do = requests.get(f"https://api.telegram.org/bot2075679625:AAGer_kS5e-Wl4kkjH18FifK1UGo2CTj_6I/getChatMember?chat_id=@vrrrrvr&user_id={m.from_user.id}").text
+    do = requests.get(f"https://api.telegram.org/bot2075679625:AAGer_kS5e-Wl4kkjH18FifK1UGo2CTj_6I/getChatMember?chat_id=@ssrr_r&user_id={m.from_user.id}").text
     if do.count("left") or do.count("Bad Request: user not found"):
-        await m.reply_text("اشتࢪك بقناة البوت لتستطيع تشغيل الاغاني  \n— — — — — — — — — — — —\n - @Vrrrrvr ↫ ")
+        await m.reply_text("‹ اشتࢪك بقناة البوت لتستطيع تشغيل الاغاني  \n— — — — — — — — — — — —\n - @ssrr_r ↫ ›")
     else:
         replied = m.reply_to_message
         chat_id = m.chat.id
@@ -244,7 +244,7 @@ async def play(c: Client, m: Message):
                             )
                         else:
                             try:
-                                await suhu.edit("🎙 **جاࢪ الانضمام الى المكالمة...**")
+                                await suhu.edit("‹ 🎙 **جاࢪ الانضمام الى المكالمة ›**")
                                 await call_py.join_group_call(
                                     chat_id,
                                     AudioPiped(
@@ -257,7 +257,7 @@ async def play(c: Client, m: Message):
                                 requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                                 await m.reply_photo(
                                     photo=thumbnail,
-                                    caption=f"📍 **العنۅان:** [{songname}]({url})\n**⏱ المدة:** `{duration}`\n💡 ** الحالة:** `يشغل`\n🎧 **بواسطه:** {requester}\n📹 ** نوع البث:** `موسيقى`",
+                                    caption=f"📍 **العنۅان :** [{songname}]({url})\n**⏱ المدة :** `{duration}`\n💡 ** الحالة :** `يشغل`\n🎧 **بواسطه :** {requester}\n📹 ** نوع البث :** `موسيقى`",
                                     reply_markup=keyboard,
                                 )
                             except Exception as ep:
