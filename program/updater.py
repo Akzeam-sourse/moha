@@ -57,21 +57,21 @@ def updater():
 @sudo_users_only
 async def update_repo(_, message: Message):
     chat_id = message.chat.id
-    msg = await message.reply("🔄 `processing update...`")
+    msg = await message.reply("‹ `جار تحديث الملفات` ›")
     update_avail = updater()
     if update_avail:
-        await msg.edit("✅ انتهى التحديث \n\n• أعيد تشغيل البوت ، وعاد نشطًا مرة أخرى خلال دقيقة واحدة.")
+        await msg.edit("‹ انتهى التحديث \n\n أعيد تشغيل البوت ، وعاد نشطًا مرة أخرى خلال دقيقة واحدة ›")
         system("git pull -f && pip3 install -r requirements.txt")
         execle(sys.executable, sys.executable, "main.py", environ)
         return
-    await msg.edit("bot is **up-to-date** with [main](https://github.com/Yy45r/MUSICALEEX1/tree/main)", disable_web_page_preview=True)
+    await msg.edit("bot is **up-to-date** with [main](https://github.com/Akzeam-sourse/moha/tree/main)", disable_web_page_preview=True)
 
 
 @Client.on_message(command(["اعاده التشغيل", f"restart@{BOT_USERNAME}"]) & ~filters.edited)
 @sudo_users_only
 async def restart_bot(_, message: Message):
-    msg = await message.reply("`restarting bot...`")
+    msg = await message.reply("`‹ جاري اعاده تشغيل البوت ›`")
     args = [sys.executable, "main.py"]
-    await msg.edit("✅ اعاده تشغيل البوت\n\n• الآن يمكنك استخدام هذا البوت مرة أخرى.")
+    await msg.edit("‹ اعاده تشغيل البوت\n\n الآن يمكنك استخدام هذا البوت مرة أخرى ›")
     execle(sys.executable, *args, environ)
     return
